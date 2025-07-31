@@ -1,0 +1,35 @@
+# heideOS Local Environment Variables
+# Copy this content to `.env.local` and add your actual API keys
+
+# =============================================================================
+# DEVELOPMENT
+# =============================================================================
+PORT=3000
+
+# =============================================================================
+# MINIMAL SETUP (add these for core AI features)
+# =============================================================================
+
+# Upstash Redis (required for storage, caching, rate limiting)
+REDIS_KV_REST_API_URL=
+REDIS_KV_REST_API_TOKEN=
+
+# AI Provider (choose one - Claude 4 is the default)
+ANTHROPIC_API_KEY=
+# OR
+# OPENAI_API_KEY=
+# OR  
+# GOOGLE_GENERATIVE_AI_API_KEY=
+
+# =============================================================================
+# OPTIONAL FEATURES (uncomment and fill to enable)
+# =============================================================================
+
+# Text-to-speech
+# ELEVENLABS_API_KEY=
+
+# Real-time chat rooms
+# PUSHER_APP_ID=
+# PUSHER_KEY=
+# PUSHER_SECRET=
+# PUSHER_CLUSTER=us2

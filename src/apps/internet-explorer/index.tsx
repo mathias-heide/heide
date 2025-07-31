@@ -44,10 +44,10 @@ export const appMetadata = {
   version: "1.02",
   name: "Internet Explorer",
   creator: {
-    name: "Ryo Lu",
-    url: "https://ryo.lu",
+    name: "Mathias Heide",
+    url: "https://heide.ai",
   },
-  github: "https://github.com/ryokun6/ryos",
+  github: "https://github.com/mathias-heide/heide",
   icon: "/icons/default/ie.png",
 };
 

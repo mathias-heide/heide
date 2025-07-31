@@ -1,6 +1,6 @@
-// Utility helpers for IndexedDB operations used across ryOS
+// Utility helpers for IndexedDB operations used across heideOS
 
-const DB_NAME = "ryOS";
+const DB_NAME = "heideOS";
 const DB_VERSION = 5; // Increment version for UUID migration
 
 export const STORES = {
@@ -11,7 +11,7 @@ export const STORES = {
 } as const;
 
 /**
- * Open (or create) the ryOS IndexedDB database and ensure all required
+ * Open (or create) the heideOS IndexedDB database and ensure all required
  * object stores exist.  Returns a ready-to-use IDBDatabase instance.
  */
 export const ensureIndexedDBInitialized = async (): Promise<IDBDatabase> => {

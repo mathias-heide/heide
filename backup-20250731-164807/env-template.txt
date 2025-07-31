@@ -1,0 +1,67 @@
+# ryOS Environment Variables Template
+# Copy this file to `.env.local` and fill in your API keys
+
+# =============================================================================
+# DEVELOPMENT
+# =============================================================================
+
+# Port for local development server (optional, defaults to 5173)
+PORT=3000
+
+# =============================================================================
+# REQUIRED - DATABASE & STORAGE
+# =============================================================================
+
+# Upstash Redis (required for most features)
+# Sign up at https://upstash.com and create a Redis database
+REDIS_KV_REST_API_URL=https://your-redis-url.upstash.io
+REDIS_KV_REST_API_TOKEN=your-redis-token
+
+# =============================================================================
+# REQUIRED - AI PROVIDERS (choose at least one)
+# =============================================================================
+
+# Anthropic Claude (default AI model)
+# Get API key at https://console.anthropic.com
+ANTHROPIC_API_KEY=sk-ant-api03-your-key
+
+# OpenAI GPT (alternative AI model + audio transcription)
+# Get API key at https://platform.openai.com/api-keys
+OPENAI_API_KEY=sk-your-openai-key
+
+# Google Gemini (alternative AI model)
+# Get API key at https://aistudio.google.com/app/apikey
+GOOGLE_GENERATIVE_AI_API_KEY=your-google-api-key
+
+# =============================================================================
+# OPTIONAL - ENHANCED FEATURES
+# =============================================================================
+
+# ElevenLabs Text-to-Speech (for AI voice responses)
+# Get API key at https://elevenlabs.io/app/speech-synthesis
+ELEVENLABS_API_KEY=your-elevenlabs-key
+
+# Pusher (for real-time chat rooms)
+# Create app at https://dashboard.pusher.com
+PUSHER_APP_ID=your-app-id
+PUSHER_KEY=your-pusher-key
+PUSHER_SECRET=your-pusher-secret
+PUSHER_CLUSTER=us2
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# Features that work WITHOUT API keys:
+# - Desktop environment & themes
+# - Most apps (Finder, Paint, Minesweeper, etc.)
+# - YouTube integration (Videos & iPod apps)
+# - File system & local storage
+# - Lyrics display
+# - QR code sharing
+
+# Features that NEED API keys:
+# - AI Chat (requires one of: ANTHROPIC_API_KEY, OPENAI_API_KEY, or GOOGLE_GENERATIVE_AI_API_KEY)
+# - Persistent storage & rate limiting (requires REDIS_KV_REST_API_URL & TOKEN)
+# - Text-to-speech (requires ELEVENLABS_API_KEY)
+# - Real-time chat rooms (requires PUSHER_* keys)

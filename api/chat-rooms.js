@@ -1002,7 +1002,7 @@ export async function GET(request) {
         // This is an admin-only endpoint for cleaning up expired presence
         const { username, token } = extractAuth(request);
         const isValid = await validateAuth(username, token, requestId);
-        if (!isValid.valid || username?.toLowerCase() !== "ryo") {
+        if (!isValid.valid || username?.toLowerCase() !== "heide") {
           return createErrorResponse(
             "Unauthorized - Admin access required",
             403
@@ -1022,7 +1022,7 @@ export async function GET(request) {
         // Debug endpoint to check presence state
         const { username, token } = extractAuth(request);
         const isValid = await validateAuth(username, token, requestId);
-        if (!isValid.valid || username?.toLowerCase() !== "ryo") {
+        if (!isValid.valid || username?.toLowerCase() !== "heide") {
           return createErrorResponse(
             "Unauthorized - Admin access required",
             403
@@ -1159,7 +1159,7 @@ export async function POST(request) {
       "listTokens", // List all active tokens for a user
       "logoutAllDevices", // Logout from all devices
       "logoutCurrent", // Logout current session
-      "generateRyoReply", // Generate and post @ryo reply server-side
+      "generateRyoReply", // Generate and post @heide reply server-side
     ];
 
     // Check authentication for protected actions
@@ -1395,7 +1395,7 @@ async function handleCreateRoom(data, username, requestId) {
       return createErrorResponse("Room name is required for public rooms", 400);
     }
 
-    if (normalizedUsername !== "ryo") {
+    if (normalizedUsername !== "heide") {
       logInfo(requestId, `Unauthorized: User ${username} is not the admin`);
       return createErrorResponse(
         "Forbidden - Only admin can create public rooms",
@@ -1527,7 +1527,7 @@ async function handleDeleteRoom(roomId, username, requestId) {
       }
     } else {
       // For public rooms, only admin can delete
-      if (username.toLowerCase() !== "ryo") {
+      if (username.toLowerCase() !== "heide") {
         logInfo(requestId, `Unauthorized: User ${username} is not the admin`);
         return createErrorResponse(
           "Unauthorized - admin access required for public rooms",
@@ -2226,8 +2226,8 @@ async function handleLeaveRoom(data, requestId) {
 async function handleClearAllMessages(username, requestId) {
   logInfo(requestId, "Clearing all chat messages from all rooms");
 
-  // Check if the user is the admin ("ryo")
-  if (username?.toLowerCase() !== "ryo") {
+  // Check if the user is the admin ("heide")
+  if (username?.toLowerCase() !== "heide") {
     logInfo(requestId, `Unauthorized: User ${username} is not the admin`);
     return createErrorResponse("Forbidden - Admin access required", 403);
   }
@@ -2305,8 +2305,8 @@ async function handleClearAllMessages(username, requestId) {
 async function handleResetUserCounts(username, requestId) {
   logInfo(requestId, "Resetting all user counts and clearing room memberships");
 
-  // Check if the user is the admin ("ryo")
-  if (username?.toLowerCase() !== "ryo") {
+  // Check if the user is the admin ("heide")
+  if (username?.toLowerCase() !== "heide") {
     logInfo(requestId, `Unauthorized: User ${username} is not the admin`);
     return createErrorResponse("Forbidden - Admin access required", 403);
   }
@@ -2799,7 +2799,7 @@ be yourself, short and direct
 </ryo_persona_instructions>
 
 <chat_instructions>
-you're chatting in ryOS Chats app. keep responses 1–2 sentences unless asked to elaborate.
+you're chatting in heideOS Chats app. keep responses 1–2 sentences unless asked to elaborate.
 respond in the user's language. if user types "👋 *nudge sent*", comment on current system state briefly.
 </chat_instructions>`;
 
@@ -2833,12 +2833,12 @@ respond in the user's language. if user types "👋 *nudge sent*", comment on cu
     return createErrorResponse("Failed to generate reply", 500);
   }
 
-  // Save as a message from 'ryo'
+  // Save as a message from 'heide'
   const messageId = generateId();
   const message = {
     id: messageId,
     roomId,
-    username: "ryo",
+    username: "heide",
     content: escapeHTML(filterProfanityPreservingUrls(replyText)),
     timestamp: getCurrentTimestamp(),
   };
@@ -2874,7 +2874,7 @@ async function handleDeleteMessage(roomId, messageId, username, requestId) {
   }
 
   // Only admin user (ryo) can delete via this endpoint - use authenticated username
-  if (username?.toLowerCase() !== "ryo") {
+  if (username?.toLowerCase() !== "heide") {
     logInfo(
       requestId,
       `Unauthorized delete attempt by authenticated user: ${username}`

@@ -44,9 +44,9 @@ export const appMetadata = {
   version: "1.0.4",
   creator: {
     name: "Ryo",
-    url: "https://ryo.lu",
+    url: "https://heide.ai",
   },
-  github: "https://github.com/ryokun6/ryos",
+  github: "https://github.com/mathias-heide/heide",
   icon: "/icons/default/paint.png",
 };
 

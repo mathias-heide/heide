@@ -71,7 +71,7 @@ const AVAILABLE_COMMANDS = [
   "edit",
   "history",
   "about",
-  "ryo",
+  "heide",
   "ai",
   "chat",
   "echo",
@@ -1556,7 +1556,7 @@ export function TerminalAppComponent({
           historyCommands[historyCommands.length - 1 - newIndex] || "";
 
         // If we're not in AI mode and the historic command was from AI mode
-        // (doesn't start with 'ryo' and was saved with 'ryo' prefix)
+        // (doesn't start with 'heide' and was saved with 'heide' prefix)
         const savedCommands = useTerminalStore.getState().commandHistory;
         const commandEntry = savedCommands[savedCommands.length - 1 - newIndex];
         if (
@@ -2515,7 +2515,7 @@ assistant
 
       case "ai":
       case "chat":
-      case "ryo": {
+      case "heide": {
         // Enter AI chat mode
         setIsInAiMode(true);
 
@@ -2528,7 +2528,7 @@ assistant
             id: "system",
             role: "system",
             content:
-              "You are a coding assistant running in the terminal app on ryOS.",
+              "You are a coding assistant running in the terminal app on heideOS.",
           },
         ]);
 
@@ -2721,7 +2721,7 @@ assistant
           id: "system",
           role: "system",
           content:
-            "You are a coding assistant running in the terminal app on ryOS.",
+            "You are a coding assistant running in the terminal app on heideOS.",
         },
       ]);
 
@@ -2755,7 +2755,7 @@ assistant
           id: "system",
           role: "system",
           content:
-            "You are a coding assistant running in the terminal app on ryOS.",
+            "You are a coding assistant running in the terminal app on heideOS.",
         },
       ]);
 
@@ -3576,10 +3576,10 @@ assistant
             name: "Terminal",
             version: "1.0",
             creator: {
-              name: "Ryo Lu",
-              url: "https://ryo.lu",
+              name: "Mathias Heide",
+              url: "https://heide.ai",
             },
-            github: "https://github.com/ryokun6/ryos",
+            github: "https://github.com/mathias-heide/heide",
             icon: "/icons/default/terminal.png",
           }
         }

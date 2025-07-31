@@ -3,7 +3,7 @@ description:
 globs: 
 alwaysApply: true
 ---
-# ryOS General Rules
+# heideOS General Rules
 
 ## Environment
 - Project: `react`

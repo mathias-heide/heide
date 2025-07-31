@@ -164,7 +164,7 @@ export interface ChatsStoreState {
   authToken: string | null; // Authentication token
   hasPassword: boolean | null; // Whether user has password set (null = unknown/not checked)
   rooms: ChatRoom[];
-  currentRoomId: string | null; // ID of the currently selected room, null for AI chat (@ryo)
+  currentRoomId: string | null; // ID of the currently selected room, null for AI chat (@heide)
   roomMessages: Record<string, ChatMessage[]>; // roomId -> messages map
   unreadCounts: Record<string, number>; // roomId -> unread message count
   hasEverUsedChats: boolean; // Track if user has ever used chat before
@@ -292,7 +292,7 @@ const getInitialState = (): Omit<
 };
 
 const STORE_VERSION = 2;
-const STORE_NAME = "ryos:chats";
+const STORE_NAME = "heide:chats";
 
 export const useChatsStore = create<ChatsStoreState>()(
   persist(
@@ -1229,7 +1229,7 @@ export const useChatsStore = create<ChatsStoreState>()(
             }
 
             // Room will be removed via Pusher update
-            // If we're currently in this room, switch to @ryo
+            // If we're currently in this room, switch to @heide
             const currentRoomId = get().currentRoomId;
             if (currentRoomId === roomId) {
               set({ currentRoomId: null });
