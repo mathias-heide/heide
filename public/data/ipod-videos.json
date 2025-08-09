@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "id": "8eNoms9wsGc",
+      "url": "https://www.youtube.com/watch?v=8eNoms9wsGc",
+      "title": "Simple Man",
+      "artist": "Lynyrd Skynyrd",
+      "lyricOffset": 1000
+    },
+    {
       "id": "cRFLDaYstxs",
       "url": "https://www.youtube.com/watch?v=cRFLDaYstxs",
       "title": "Duality (CoreCore Mix)",
@@ -26,13 +33,6 @@
       "url": "https://www.youtube.com/watch?v=SjATgaXc73M",
       "title": "Vielleicht Vielleicht",
       "artist": "MilleniumKid x JBS",
-      "lyricOffset": 1000
-    },
-    {
-      "id": "8eNoms9wsGc",
-      "url": "https://www.youtube.com/watch?v=8eNoms9wsGc",
-      "title": "Simple Man",
-      "artist": "Lynyrd Skynyrd",
       "lyricOffset": 1000
     },
     {

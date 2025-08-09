@@ -140,7 +140,7 @@ export interface IpodState extends IpodData {
   }>;
 }
 
-const CURRENT_IPOD_STORE_VERSION = 22; // Force library reset with new tracks
+const CURRENT_IPOD_STORE_VERSION = 23; // Simple Man first track
 
 // Helper function to get unplayed track IDs from history
 function getUnplayedTrackIds(
