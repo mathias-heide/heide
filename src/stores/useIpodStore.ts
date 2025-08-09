@@ -140,7 +140,7 @@ export interface IpodState extends IpodData {
   }>;
 }
 
-const CURRENT_IPOD_STORE_VERSION = 20; // Force reload with updated playlist
+const CURRENT_IPOD_STORE_VERSION = 22; // Force library reset with new tracks
 
 // Helper function to get unplayed track IDs from history
 function getUnplayedTrackIds(
@@ -721,22 +721,26 @@ export const useIpodStore = create<IpodState>()(
         // If the persisted version is older than the current version, update defaults
         if (version < CURRENT_IPOD_STORE_VERSION) {
           console.log(
-            `Migrating iPod store from version ${version} to ${CURRENT_IPOD_STORE_VERSION}`
+            `Migrating iPod store from version ${version} to ${CURRENT_IPOD_STORE_VERSION} - FORCE RESET`
           );
+          // Complete reset for version 21 - clear everything
           state = {
-            ...state,
+            ...initialIpodData,
+            // Keep only user preferences, reset everything else
+            theme: state.theme ?? "classic",
+            lcdFilterOn: state.lcdFilterOn ?? true,
+            showLyrics: state.showLyrics ?? true,
+            lyricsAlignment: state.lyricsAlignment ?? LyricsAlignment.FocusThree,
+            chineseVariant: state.chineseVariant ?? ChineseVariant.Traditional,
+            koreanDisplay: state.koreanDisplay ?? KoreanDisplay.Original,
+            // Force complete library reload
             tracks: [],
             currentIndex: 0,
             isPlaying: false,
-            isShuffled: state.isShuffled, // Keep shuffle preference maybe? Or reset? Let's keep it for now.
-            showLyrics: state.showLyrics ?? true, // Add default for migration
-            lyricsAlignment:
-              state.lyricsAlignment ?? LyricsAlignment.FocusThree,
-            chineseVariant: state.chineseVariant ?? ChineseVariant.Traditional,
-            koreanDisplay: state.koreanDisplay ?? KoreanDisplay.Original,
-            lyricsTranslationRequest: null, // Ensure this is not carried from old persisted state
-            libraryState: "uninitialized" as LibraryState, // Reset to uninitialized on migration
-            lastKnownVersion: state.lastKnownVersion ?? 0,
+            libraryState: "uninitialized" as LibraryState,
+            lastKnownVersion: 0,
+            playbackHistory: [],
+            historyPosition: -1,
           };
         }
         // Clean up potentially outdated fields if needed in future migrations
