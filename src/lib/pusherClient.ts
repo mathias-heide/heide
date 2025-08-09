@@ -11,6 +11,19 @@ const PUSHER_CLUSTER = import.meta.env.VITE_PUSHER_CLUSTER;
 
 export function getPusherClient(): Pusher {
   if (!globalWithPusher.__pusherClient) {
+    // Check if Pusher keys are available
+    if (!PUSHER_APP_KEY || !PUSHER_CLUSTER) {
+      console.warn('Pusher keys not found in environment. Chat features will be disabled.');
+      console.log('VITE_PUSHER_KEY:', PUSHER_APP_KEY || 'undefined');
+      console.log('VITE_PUSHER_CLUSTER:', PUSHER_CLUSTER || 'undefined');
+      // Return a mock Pusher client that doesn't crash
+      return {
+        subscribe: () => ({ bind: () => {}, unbind: () => {} }),
+        unsubscribe: () => {},
+        disconnect: () => {},
+      } as any;
+    }
+    
     // Create once and cache
     globalWithPusher.__pusherClient = new Pusher(PUSHER_APP_KEY, {
       cluster: PUSHER_CLUSTER,

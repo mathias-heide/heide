@@ -510,6 +510,7 @@ const validateAuth = async (
   // 2. Old multi-token path: token -> username mapping
   // ---------------------------
   const mappedUsername = await getUsernameForToken(token);
+  logInfo(requestId, `Token validation - mapped username from token: ${mappedUsername}, expected: ${normalizedUsername}`);
   // Support legacy/object values in Redis by extracting a username string safely
   const mappedLower =
     typeof mappedUsername === "string"
@@ -520,6 +521,7 @@ const validateAuth = async (
       ? mappedUsername.username.toLowerCase()
       : null;
   if (mappedLower === normalizedUsername) {
+    logInfo(requestId, `Token validation successful via old multi-token path for user: ${normalizedUsername}`);
     // Refresh TTL for this token
     await redis.expire(getTokenKey(token), USER_TTL_SECONDS);
     // Also migrate to new format for future validations

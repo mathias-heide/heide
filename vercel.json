@@ -1,12 +1,12 @@
 {
-  "devCommand": "bun run dev",
+  "devCommand": "vite --port 3001",
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://heide.ai http://localhost:3000"
+          "value": "https://heide.ai http://localhost:3001"
         }
       ]
     },
