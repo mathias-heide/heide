@@ -51,7 +51,7 @@ export const helpItems = [
 ];
 
 export const PhotoBoothApp: BaseApp = {
-  id: "photo-booth",
+  id: "photo-booth" as any,
   name: "Photo Booth",
   icon: { type: "image", src: "/icons/default/photo-booth.png" },
   description: "Take photos with your camera and apply fun effects",

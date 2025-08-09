@@ -48,6 +48,10 @@ PUSHER_KEY=your-pusher-key
 PUSHER_SECRET=your-pusher-secret
 PUSHER_CLUSTER=us2
 
+# Pusher client-side (exposed to browser - safe to be public)
+VITE_PUSHER_KEY=your-pusher-key
+VITE_PUSHER_CLUSTER=us2
+
 # =============================================================================
 # NOTES
 # =============================================================================

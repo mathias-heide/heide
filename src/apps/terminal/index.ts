@@ -2,7 +2,7 @@ import { BaseApp } from "../base/types";
 import { TerminalAppComponent } from "./components/TerminalAppComponent";
 
 export const TerminalApp: BaseApp = {
-  id: "terminal",
+  id: "terminal" as any,
   name: "Terminal",
   icon: {
     type: "image",

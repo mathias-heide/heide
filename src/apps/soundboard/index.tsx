@@ -46,7 +46,7 @@ export const appMetadata = {
 };
 
 export const SoundboardApp: BaseApp = {
-  id: "soundboard",
+  id: "soundboard" as any,
   name: "Soundboard",
   icon: { type: "image", src: appMetadata.icon },
   description: "A simple soundboard app",
