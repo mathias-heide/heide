@@ -1,7 +1,7 @@
 {
   "name": "heideOS",
   "short_name": "heideOS",
-  "description": "A web-based OS experience, made with Cursor",
+  "description": "A web-based OS experience, made by Mathias Heide",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

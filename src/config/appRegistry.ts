@@ -3,15 +3,12 @@ import { InternetExplorerApp } from "@/apps/internet-explorer";
 import { ChatsApp } from "@/apps/chats";
 import ControlPanelsApp from "@/apps/control-panels";
 import { MinesweeperApp } from "@/apps/minesweeper";
-import { SoundboardApp } from "@/apps/soundboard";
 import { FinderApp } from "@/apps/finder";
 import { PaintApp } from "@/apps/paint";
 import { VideosApp } from "@/apps/videos";
 import { PcApp } from "@/apps/pc";
-import { PhotoBoothApp } from "@/apps/photo-booth";
 import { SynthApp } from "@/apps/synth";
 import { IpodApp } from "@/apps/ipod";
-import { TerminalApp } from "@/apps/terminal";
 import { appIds } from "./appIds";
 import type {
   BaseApp,
@@ -51,13 +48,7 @@ export const appRegistry = {
       minSize: { width: 300, height: 200 },
     } as WindowConstraints,
   },
-  [SoundboardApp.id]: {
-    ...SoundboardApp,
-    windowConfig: {
-      defaultSize: { width: 650, height: 475 },
-      minSize: { width: 550, height: 375 },
-    } as WindowConstraints,
-  },
+
   [InternetExplorerApp.id]: {
     ...(InternetExplorerApp as BaseApp<InternetExplorerInitialData>),
     windowConfig: {
@@ -87,14 +78,7 @@ export const appRegistry = {
       maxSize: { width: 713, height: 535 },
     } as WindowConstraints,
   },
-  [PhotoBoothApp.id]: {
-    ...PhotoBoothApp,
-    windowConfig: {
-      defaultSize: { width: 644, height: 510 },
-      minSize: { width: 644, height: 510 },
-      maxSize: { width: 644, height: 510 },
-    } as WindowConstraints,
-  },
+
   [MinesweeperApp.id]: {
     ...MinesweeperApp,
     windowConfig: {
@@ -132,13 +116,7 @@ export const appRegistry = {
       maxSize: { width: 645, height: 511 },
     } as WindowConstraints,
   },
-  [TerminalApp.id]: {
-    ...TerminalApp,
-    windowConfig: {
-      defaultSize: { width: 600, height: 400 },
-      minSize: { width: 400, height: 300 },
-    } as WindowConstraints,
-  },
+
   [ControlPanelsApp.id]: {
     ...(ControlPanelsApp as BaseApp<ControlPanelsInitialData>),
     windowConfig: {

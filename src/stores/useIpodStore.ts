@@ -140,7 +140,7 @@ export interface IpodState extends IpodData {
   }>;
 }
 
-const CURRENT_IPOD_STORE_VERSION = 18; // Incremented version for auto-update feature
+const CURRENT_IPOD_STORE_VERSION = 20; // Force reload with updated playlist
 
 // Helper function to get unplayed track IDs from history
 function getUnplayedTrackIds(
@@ -473,18 +473,16 @@ export const useIpodStore = create<IpodState>()(
       },
       initializeLibrary: async () => {
         const current = get();
-        // Only initialize if the library is in uninitialized state
-        if (current.libraryState === "uninitialized") {
-          const { tracks, version } = await loadDefaultTracks();
-          set({
-            tracks,
-            currentIndex: tracks.length > 0 ? 0 : -1,
-            libraryState: "loaded",
-            lastKnownVersion: version,
-            playbackHistory: [], // Clear playback history when initializing library
-            historyPosition: -1,
-          });
-        }
+        // Always reload to get our updated playlist
+        const { tracks, version } = await loadDefaultTracks();
+        set({
+          tracks,
+          currentIndex: tracks.length > 0 ? 0 : -1,
+          libraryState: "loaded",
+          lastKnownVersion: version,
+          playbackHistory: [], // Clear playback history when initializing library
+          historyPosition: -1,
+        });
       },
       addTrackFromVideoId: async (urlOrId: string): Promise<Track | null> => {
         // Extract video ID from various URL formats
