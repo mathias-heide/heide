@@ -38,3 +38,9 @@ node_modules/
 # Task files
 # tasks.json
 # tasks/ 
+
+# Local backups (ignored)
+backup-20250731-164807/
+backup-precise-20250731-165821/
+backup*/
+
