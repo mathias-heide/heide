@@ -381,7 +381,7 @@ export function SoundboardAppComponent({
         title="Soundboard"
         onClose={onClose}
         isForeground={isForeground}
-        appId="soundboard"
+        appId={"soundboard" as any}
         skipInitialSound={skipInitialSound}
         instanceId={instanceId}
         onNavigateNext={onNavigateNext}
@@ -407,7 +407,7 @@ export function SoundboardAppComponent({
         }
         onClose={onClose}
         isForeground={isForeground}
-        appId="soundboard"
+        appId={"soundboard" as any}
         skipInitialSound={skipInitialSound}
         instanceId={instanceId}
         onNavigateNext={onNavigateNext}

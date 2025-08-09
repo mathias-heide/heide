@@ -472,7 +472,6 @@ export const useIpodStore = create<IpodState>()(
         return JSON.stringify(tracks, null, 2);
       },
       initializeLibrary: async () => {
-        const current = get();
         // Always reload to get our updated playlist
         const { tracks, version } = await loadDefaultTracks();
         set({

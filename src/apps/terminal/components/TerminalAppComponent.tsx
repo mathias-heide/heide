@@ -3515,7 +3515,7 @@ assistant
     <>
       {!isXpTheme && menuBar}
       <WindowFrame
-        appId="terminal"
+        appId={"terminal" as any}
         title="Terminal"
         onClose={onClose}
         isForeground={isForeground}
@@ -3552,7 +3552,7 @@ assistant
                 e.stopPropagation();
                 inputRef.current?.focus();
                 if (!isForeground) {
-                  bringToForeground("terminal");
+                  bringToForeground("terminal" as any);
                 }
               }
             }}

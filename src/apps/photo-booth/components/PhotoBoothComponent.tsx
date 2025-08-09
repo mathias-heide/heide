@@ -797,7 +797,7 @@ export function PhotoBoothComponent({
         title="Photo Booth"
         onClose={onClose}
         isForeground={isForeground}
-        appId="photo-booth"
+        appId={"photo-booth" as any}
         skipInitialSound={skipInitialSound}
         instanceId={instanceId}
         onNavigateNext={onNavigateNext}
